@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pochette Moderne</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="pochette.png" alt="Pochette Moderne">
+        <div class="product-details">
+            <h1>Pochette Moderne</h1>
+            <p class="price">79.00 DH</p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Pochette Moderne', '79.00', 'pochette.png')">Ajouter au panier</button>
+                <button> <a href="index.html"> retour </a> </button>
+                <button><a href="cart.html">voir le panier</a></button>
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Cette pochette moderne est idéale pour transporter vos essentiels avec style. Sa conception élégante et sa finition de haute qualité en font un accessoire parfait pour toutes les occasions.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Matériau : Synthétique de haute qualité</li>
+            <li>Couleur : Moderne et polyvalente</li>
+            <li>Taille : Compacte pour un transport facile</li>
+            <li>Usage : Convient pour le travail, les sorties, et plus</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page des Favoris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .favorites-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .favorite-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+        .favorite-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .favorite-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="favorites-container">
+        <h2>Liste des Favoris</h2>
+        <div id="favoritesList">
+            <!-- Les favoris seront affichés ici -->
+        </div>
+    </div>
+
+    <script>
+        // Récupérer les éléments du localStorage
+        function renderFavorites() {
+            const favoritesList = document.getElementById('favoritesList');
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+            favoritesList.innerHTML = ''; // Vider la liste actuelle
+
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = '<p>Aucun élément ajouté aux favoris pour le moment.</p>';
+                return;
+            }
+
+            favorites.forEach((favorite, index) => {
+                const favoriteItem = document.createElement('div');
+                favoriteItem.classList.add('favorite-item');
+
+                favoriteItem.innerHTML = `
+                    <img src="${favorite.image}" alt="${favorite.name}">
+                    <div>
+                        <strong>${favorite.name}</strong><br>
+                        <span>${favorite.price}</span>
+                    </div>
+                    <button onclick="removeFavorite(${index})">Supprimer</button>
+                `;
+
+                favoritesList.appendChild(favoriteItem);
+            });
+        }
+
+        // Supprimer un élément des favoris
+        function removeFavorite(index) {
+            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            favorites.splice(index, 1);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            renderFavorites();
+        }
+
+        // Afficher les favoris lors du chargement de la page
+        renderFavorites();
+        
+    </script>
+
+</body>
+</html>

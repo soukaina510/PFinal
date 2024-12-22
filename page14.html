@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pakka Ceinture Lombaire</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="d2.webp" alt="Pakka Ceinture Lombaire">
+        <div class="product-details">
+            <h1>Pakka Ceinture Lombaire de Musculation en Cuir</h1>
+            <p class="price">140.00 DH <span class="old-price">250,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Pakka Ceinture Lombaire de Musculation en Cuir', '140.00', 'd2.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>La ceinture lombaire Pakka en cuir est conçue pour fournir un soutien optimal à votre dos pendant vos séances de musculation. Fabriquée à partir de cuir de haute qualité, elle offre une durabilité exceptionnelle tout en assurant un confort maximal.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Matériau : cuir véritable pour une résistance accrue</li>
+            <li>Offre un excellent maintien lombaire</li>
+            <li>Conception ergonomique pour plus de confort</li>
+            <li>Idéale pour les levées lourdes (squat, deadlift, etc.)</li>
+            <li>Convient aussi bien aux débutants qu'aux experts</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

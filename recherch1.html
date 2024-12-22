@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Recherche</title>
+    <style>
+        /* CSS pour le style */
+        body {
+            font-family: "Jost", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color:white;
+            background-image: url(nn.jpg);
+            position: absolute;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 10%;
+        }
+
+        .logo {
+            display: block;
+            text-align: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s; 
+        }
+
+        .logo img:hover {
+            transform: scale(1.05); 
+        }
+
+        .navmenu {
+            display: flex;
+        }
+
+        .navmenu a {
+            color: white;
+            font-size: 16px;
+            text-transform: capitalize;
+            padding: 20px 30px;
+            font-weight: 400;
+            transition: all .42s ease;
+        }
+
+        .navmenu a:hover {
+            color: blueviolet;
+        }
+
+        .nav-icon {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+        }
+
+        .nav-icon a {
+            color: white;
+            font-size: 20px; 
+            transition: color 0.4s ease; 
+        }
+
+        .nav-icon a:hover {
+            color: blueviolet; 
+        }
+
+        .search-container {
+            width: 80%;
+            margin: 100px auto; /* Ajout d'une marge pour éviter que la barre de recherche ne soit cachée par l'en-tête */
+            text-align: center;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #results-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .result-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .result-item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .result-item p {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="photo4.jpg" alt="notfound"></a>
+        <ul class="navmenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-icon">
+            <a href="recherch1.html"><i class='bx bx-search-alt'></i></a>
+            <a href="connecter.html"><i class='bx bx-user'></i></a>
+            <a href="cart.html"><i class='bx bx-cart'></i></a>
+        </div>
+    </header>
+    
+            <!-- Conteneur de recherche -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher un produit..." oninput="performSearch()">
+        <div id="results-container"></div>
+    </div>
+
+    <script>
+        // Données fictives pour les résultats
+        const products = [
+            { name: 'Mass-Tech Elite 2.72 Kg - Muscletech', price: '599.00 DH', image: 'mass-tech.jpg', link: 'page1.html' },
+
+            { name: 'Serious Mass 5,44Kg - Optimum Nutrition', price: '849.00 DH', image: 'seriousmass.webp', link: 'page2.html' },
+            { name: 'Dymatize Nutrition ISO 100, 5 lbs (2,26 kg)', price: '1,140.00 DH', image: 'dyamtize.webp', link: 'page3.html' },
+            { name: 'Zinc 100% VRN, 100 comprimés - Sotya', price: '189.00 DH', image: 'Zinc.webp', link: 'page4.html' },
+            { name: 'SOTYA OMÉGA 3 HUILE DE POISSON 110 CAPSULES MOLLES', price: '189.00 DH', image: 'sotya.webp', link: 'page5.html' },
+            { name: 'ONE-A-DAY COMPLETE MULTIVITAMIN FORMULA', price: '299.00 DH', image: 'zinco.webp', link: 'page6.html' },
+            { name: '100% Creatine Monohydrate 500g Biotech USA', price: '439.00 DH', image: 'creatine.webp', link: 'page23.html' },
+            { name: 'CREATINE Powder Hiro.Lab – 300g', price: '269.00 DH', image: 'creatine1.webp', link: 'page9.html' },
+            { name: 'Creatine Monohydrate Applied Nutrition', price: '309.00 DH', image: 'monohydrate.webp', link: 'page10.html' },
+            { name: 'Bio Tech Creatine 100% Monohydrate 300gr', price: '380.00 DH', image: 'creatine2.webp', link: 'page24.html' },
+            { name: 'CREATINE CREAPURE (CreapureⓇ) 500 g 7NUTRITION', price: '499.00 DH', image: 'creatine3.webp', link: 'page11.html' },
+            { name: 'Evolite Creatine Monohydrate 500g', price: '500.00 DH', image: 'evolite.webp', link: 'page12.html' },
+            { name: 'Blanche Shaker 600 mL', price: '59.00 DH', image: 'shaker.webp', link: 'page13.html' },
+            { name: 'Pakka ceinture lombaire de musculation en cuir', price: '140.00 DH', image: 'd2.webp', link: 'page14.html' },
+            { name: 'Gants de musculaition-Squeeze', price: '140.00 DH', image: 'gant.webp', link: 'page15.html' },
+            { name: 'Ceinture de musculation - Squeeze', price: '149.00 DH', image: 'ceinture.webp', link: 'page16.html' },
+            { name: 'Shaker Wave+ Nano Biotech USA 300 ml +150 ml', price: '79.00 DH', image: 'shakerw.webp', link: 'page17.html' },
+            { name: 'SHAKER WAVE BIOTECH 600ML', price: '89.00 DH', image: 'shakerw2.webp', link: 'page18.html' },
+            { name: 'Capitcho blanc oversize taille M', price: '200.00 DH', image: 'capitcho.png', link: 'page19.html' },
+            { name: 'Capitcho Noir oversize taille M', price: '200.00 DH', image: 'capitcho2.png', link: 'page20.html' },
+            { name: 'Pochette Moderne', price: '79.00 DH', image: 'pochette.png', link: 'page21.html' },
+            { name: 'Calcium Magnesium 90 Tabs-Scitec nutrition', price: '199.00 DH', image:'calcium.jpg', link: 'page22.html' },
+        ];
+        // Fonction de recherche
+        function performSearch() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const resultsContainer = document.getElementById("results-container");
+            resultsContainer.innerHTML = ""; // Réinitialiser les résultats
+
+            // Filtrer les résultats
+            const filteredResults = products.filter(item => 
+                item.name.toLowerCase().includes(query)
+            );
+
+            // Afficher les résultats
+            if (filteredResults.length > 0) {
+                filteredResults.forEach(item => {
+                    const div = document.createElement("div");
+                    div.className = "result-item";
+                    div.innerHTML = `
+                        <a href="${item.link}">
+                            <img src="${item.image}" alt="${item.name}">
+                            <h3>${item.name}</h3>
+                            <p>${item.price}</p>
+                        </a>
+                    `;
+                    resultsContainer.appendChild(div);
+                });
+            } else {
+                resultsContainer.innerHTML = "<p>Aucun résultat trouvé.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

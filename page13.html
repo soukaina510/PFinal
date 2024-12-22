@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blanche Shaker 600 mL</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="shaker.webp" alt="Blanche Shaker 600 mL">
+        <div class="product-details">
+            <h1>Blanche Shaker 600 mL</h1>
+            <p class="price">59,00 DH <span class="old-price">69,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Blanche Shaker 600 mL', '59,00', 'shaker.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Le *Blanche Shaker 600 mL* est un accessoire indispensable pour mélanger vos protéines, gainers et autres compléments nutritionnels de manière rapide et efficace. Léger, durable et facile à transporter, ce shaker est idéal pour vos séances de sport.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Capacité : 600 mL</li>
+            <li>Fermeture étanche anti-fuite</li>
+            <li>Matériaux sans BPA pour une sécurité alimentaire optimale</li>
+            <li>Facile à nettoyer et durable</li>
+            <li>Conception élégante et pratique</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

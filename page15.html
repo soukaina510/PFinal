@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="gant.webp" alt="Pakka Ceinture Lombaire">
+        <div class="product-details">
+            <h1>Gants de musculaition-Squeeze</h1>
+            <p class="price">140.00 DH <span class="old-price">,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Gants de musculaition-Squeeze', '140.00', 'gant.webp')">Ajouter au panier</button>
+                <button> <a href="index.html"> retour </a> </button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Les gants de musculation offrent une protection optimale pour vos mains pendant vos séances de sport. Conçus pour améliorer votre prise en main et réduire les risques de callosités, ces gants allient confort et performance. Que vous soyez un débutant ou un athlète confirmé, ils vous fourniront un soutien idéal lors de vos entraînements les plus intenses.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Matériau : cuir synthétique et tissu respirant pour une meilleure durabilité et aération</li>
+            <li>Renforts au niveau des paumes pour une prise plus sécurisée</li>
+            <li>Fermeture ajustable pour un maintien optimal</li>
+            <li>Idéals pour la musculation, les entraînements fonctionnels et autres activités sportives</li>
+            <li>Confortables et résistants, adaptés à tous les niveaux d'entraînement</li>
+        </ul>
+    </div>
+    
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

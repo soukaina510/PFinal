@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vos Vêtements</title>
+    <style>
+        body {
+           font-family: Arial, sans-serif;
+           margin: 0;
+           padding: 0;
+           background-color: black;
+           background-image: url('GYM.jpg'); /* Remplacez ce chemin par le bon */
+           background-size: cover; /* Pour couvrir toute la page */
+           background-position: center; /* Pour centrer l'image */
+           background-attachment: fixed; /* Pour fixer l'image de fond lors du défilement */
+           position:absolute;
+           width: 100%;
+           top: 0;
+           right: 0;
+       }
+
+       nav {
+           background-color: #000;
+           color: white;
+           padding: 10px 20px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+       }
+       .navbar a:hover {
+    color: purple; /* Couleur au survol */
+}
+        .logo img {
+            width: 60px;
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s; 
+        }
+        .logo img:hover {
+           transform: scale(1.05); 
+        }
+
+       .menu {
+           display: flex;
+           gap: 20px;
+       }
+
+       .menu a {
+           color: #fff;
+           text-decoration: none;
+       }
+
+       .menu a:hover {
+           text-decoration: underline;
+       }
+
+       .container {
+           max-width: 1200px;
+           margin: 20px auto;
+           padding: 10px;
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 20px;
+       }
+
+       .card {
+           border: 1px solid white;
+           border-radius: 5px;
+           overflow: hidden;
+           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           text-align: center;
+       }
+
+       .card img {
+           width: 200px;
+           height: auto;
+       }
+
+       .card h3 {
+           font-size: 18px;
+           margin: 10px 0;
+       }
+
+       .card p {
+           color: #555;
+           margin: 10px 0;
+       }
+       .card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: white; /* Modification pour que le texte soit blanc */
+        }
+
+       .card .price {
+           color: #d9534f;
+           font-weight: bold;
+           margin: 10px 0;
+       }
+   </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#" class="logo"><img src="photo4.jpg" alt="notfound"></a>
+        </div>
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="collection.html">Collections</a>
+            <a href="cart.html">Panier</a>
+        </div>
+    </nav>
+
+    <main class="container" id="products-container">
+        <!-- Les produits seront insérés ici dynamiquement -->
+    </main>
+    <script>
+        // Données des produits pour la catégorie "Vos_Vetements"
+        const products = { 
+            Vos_Vetements: [
+                { 
+                    name: "Capitcho blanc oversize taille ML", 
+                    price: "200,00 DH", 
+                    image: "capitcho.png",
+                    link: "page19.html"
+                },
+                { 
+                    name: "Capitcho Noir oversize taille M", 
+                    price: "200,00 DH", 
+                    image: "capitcho2.png",
+                    link: "page20.html"
+                },
+                { 
+                    name: "Pochette Moderne", 
+                    price: "79,00 DH", 
+                    image: "pochette.png",
+                    link: "page21.html"
+                }
+            ]
+        };
+
+        // Sélection du conteneur
+        const container = document.getElementById("products-container");
+
+        // Affichage des produits avec des liens vers les pages de description
+        function displayProducts(category) {
+            const categoryProducts = products[category];
+            if (!categoryProducts) return;
+
+            categoryProducts.forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("card");
+
+                // Créer un lien autour de l'image pour chaque produit
+                productCard.innerHTML = `
+                    <a href="${product.link}">
+                        <img src="${product.image}" alt="${product.name}">
+                    </a>
+                    <h3>${product.name}</h3>
+                    <p class="price">${product.price}</p>
+                `;
+
+                container.appendChild(productCard);
+            });
+        }
+
+        // Chargement des produits de la catégorie "Vos_Vetements"
+        displayProducts("Vos_Vetements");
+    </script>
+    
+</body>
+</html>

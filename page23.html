@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100% Creatine Monohydrate 500g - Biotech USA</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="creatine.webp" alt="100% Creatine Monohydrate 500g - Biotech USA">
+        <div class="product-details">
+            <h1>100% Creatine Monohydrate 500g - Biotech USA</h1>
+            <p class="price">199,00 DH <span class="old-price">250,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('100% Creatine Monohydrate 500g - Biotech USA', '199.00', 'creatine.webp')">Ajouter au panier</button>
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>100% Creatine Monohydrate de Biotech USA est une formule pure de créatine monohydrate, conçue pour augmenter la performance physique lors d'exercices courts et intenses. Elle aide à améliorer la force, l'endurance et la récupération musculaire pour des entraînements plus efficaces. Avec 100% de créatine pure, ce produit est parfait pour les athlètes cherchant à optimiser leurs performances.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>100% créatine monohydrate pure pour améliorer les performances physiques</li>
+            <li>Augmente la force et la puissance lors des exercices intensifs</li>
+            <li>Aide à améliorer la récupération musculaire après l'entraînement</li>
+            <li>Idéale pour les athlètes, les bodybuilders et les sportifs de force</li>
+            <li>Facile à mélanger et sans additifs</li>
+        </ul>
+    </div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+
+</body>
+</html>

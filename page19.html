@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitcho Blanc Oversize Taille M</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="capitcho.png" alt="Capitcho Blanc Oversize Taille M">
+        <div class="product-details">
+            <h1>Capitcho Blanc Oversize Taille M</h1>
+            <p class="price">200.00 DH <span class="old-price">300,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Capitcho Blanc Oversize Taille M', '200.00', 'capitcho.png')">Ajouter au panier</button>
+                <button> <a href="index.html"> retour </a> </button>
+                <button><a href="cart.html">voir le panier</a></button>
+            </div> 
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Ce Capitcho blanc oversize taille M est parfait pour un style décontracté et tendance. Fabriqué à partir de coton de haute qualité, il offre un confort inégalé pour une utilisation quotidienne.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Matériau : 100% coton premium</li>
+            <li>Coupe : Oversize pour un look moderne</li>
+            <li>Couleur : Blanc classique</li>
+            <li>Taille : Disponible en taille M</li>
+            <li>Idéal pour toutes les saisons</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

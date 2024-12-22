@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinc 100% VRN</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="sotya.webp" alt="">
+        <div class="product-details">
+            <h1>SOTYA OMÉGA 3 HUILE DE POISSON 110 CAPSULES MOLLES</h1>
+            <p class="price">189,00 DH <span class="old-price">219,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('SOTYA OMÉGA 3 HUILE DE POISSON 110 CAPSULES MOLLES', '189,00 ', 'sotya.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Les Oméga 3 de Sotya sont un complément alimentaire à base d'huile de poisson, offrant une source riche en acides gras essentiels. Chaque capsule contient des EPA et DHA, qui contribuent à la santé cardiovasculaire, cérébrale et à la réduction des inflammations. Ce produit est idéal pour maintenir un équilibre nutritionnel optimal et améliorer la santé générale.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Complément alimentaire à base d'huile de poisson riche en Oméga 3</li>
+            <li>110 capsules molles pour une utilisation prolongée</li>
+            <li>Contribue à la santé cardiovasculaire et cérébrale</li>
+            <li>Aide à réduire les inflammations et améliorer le bien-être général</li>
+            <li>Idéal pour une supplémentation quotidienne en acides gras essentiels</li>
+        </ul>
+    </div>
+    
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+</body>
+</html>

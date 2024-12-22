@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinc 100% VRN</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="Zinc.webp" alt="Zinc 100% VRN">
+        <div class="product-details">
+            <h1>Zinc 100% VRN - 60 capsules</h1>
+            <p class="price">189,00 DH <span class="old-price">219,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Zinc 100% VRN - 60 capsules', '189,00', 'Zinc.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Le Zinc 100% VRN est un complément alimentaire essentiel pour soutenir le système immunitaire et favoriser une bonne santé générale. Chaque capsule contient du zinc pur, un minéral clé pour la fonction cellulaire et la santé de la peau.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Complément alimentaire à base de Zinc pur</li>
+            <li>60 capsules pour une utilisation de 2 mois</li>
+            <li>Renforce le système immunitaire et la peau</li>
+            <li>Idéal pour les sportifs et les personnes actives</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

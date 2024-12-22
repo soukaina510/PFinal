@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio Tech Creatine 100% Monohydrate 300g</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Iron Gain - Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="creatine2.webp" alt="Bio Tech Creatine 100% Monohydrate 300g">
+        <div class="product-details">
+            <h1>Bio Tech Creatine 100% Monohydrate 300g</h1>
+            <p class="price">129,00 DH <span class="old-price">160,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Bio Tech Creatine 100% Monohydrate 300g', '129,00 ', 'creatine2.webp')">Ajouter au panier</button>
+          
+            </div>
+            
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>Bio Tech Creatine 100% Monohydrate est une créatine pure qui aide à augmenter la force, la puissance et l'endurance lors des entraînements intenses. C'est un complément efficace pour améliorer la performance sportive et favoriser une récupération musculaire rapide.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>100% créatine monohydrate pure</li>
+            <li>Améliore la force, l'endurance et la récupération</li>
+            <li>Aide à augmenter la masse musculaire</li>
+            <li>Facile à mélanger et sans additifs</li>
+            <li>Idéale pour les athlètes et les bodybuilders</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

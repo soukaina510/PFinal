@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATINE CREAPUREⓇ - 7NUTRITION</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="creatine3.webp" alt="CREATINE CREAPUREⓇ - 7NUTRITION">
+        <div class="product-details">
+            <h1>CREATINE CREAPUREⓇ (CreapureⓇ) 500 g - 7NUTRITION</h1>
+            <p class="price">350,00 DH <span class="old-price">399,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('CREATINE CREAPUREⓇ (CreapureⓇ) 500 g - 7NUTRITION', '350,00', 'creatine3.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>CREATINE CREAPUREⓇ (CreapureⓇ) est une créatine monohydrate de la plus haute qualité, idéale pour les athlètes et les amateurs de fitness. Elle aide à améliorer la force, l'endurance et la performance lors d'entraînements intensifs.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Pureté garantie avec CreapureⓇ</li>
+            <li>500 g de créatine monohydrate</li>
+            <li>Augmente la performance physique</li>
+            <li>Idéale pour les sportifs cherchant à maximiser leur potentiel</li>
+            <li>Facile à mélanger avec de l'eau ou des boissons protéinées</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

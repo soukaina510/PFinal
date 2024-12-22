@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATINE Powder Hiro.Lab</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="creatine1.webp" alt="CREATINE Powder Hiro.Lab">
+        <div class="product-details">
+            <h1>CREATINE Powder Hiro.Lab – 300g</h1>
+            <p class="price">249,00 DH <span class="old-price">289,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('CREATINE Powder Hiro.Lab – 300g', '249,00', 'creatine1.webp')">Ajouter au panier</button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>La CREATINE Powder Hiro.Lab est une créatine monohydrate de haute qualité, conçue pour améliorer 
+            la performance physique, augmenter la force et favoriser une récupération optimale. 
+            Elle est parfaite pour les athlètes et les amateurs de fitness cherchant à maximiser leurs résultats.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Pure créatine monohydrate micronisée</li>
+            <li>300g pour un usage prolongé</li>
+            <li>Améliore les performances et la récupération</li>
+            <li>Sans additifs ni agents de charge</li>
+            <li>Idéal pour les phases de charge et de maintien</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

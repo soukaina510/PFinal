@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Paiement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .payment-form {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .order-summary {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-summary h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .order-summary .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .order-summary .total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 50px;
+        }
+
+        .thank-you-message button {
+            background-color: #007bff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Formulaire de paiement -->
+    <div class="payment-form" id="paymentForm">
+        <h2>Informations de paiement</h2>
+
+        <form id="paymentFormData">
+            <div class="form-group">
+                <label for="email">Email ou numéro de téléphone</label>
+                <input type="text" id="email" placeholder="Entrez votre email ou numéro de téléphone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input type="text" id="name" placeholder="Entrez votre nom complet" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" id="address" placeholder="Entrez votre adresse complète" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">Ville</label>
+                <input type="text" id="city" placeholder="Entrez votre ville" required>
+            </div>
+
+            <div class="form-group">
+                <label for="postalCode">Code postal</label>
+                <input type="text" id="postalCode" placeholder="Entrez votre code postal" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="text" id="phone" placeholder="Entrez votre numéro de téléphone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentMethod">Méthode de paiement</label>
+                <select id="paymentMethod" required>
+                    <option value="creditCard">Carte de crédit</option>
+                    <!-- Plus de méthodes de paiement peuvent être ajoutées ici -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Numéro de carte</label>
+                <input type="text" id="cardNumber" placeholder="Entrez le numéro de votre carte" required>
+            </div>
+
+            <button class="btn" type="submit">Finaliser le paiement</button>
+        </form>
+    </div>
+
+    <!-- Message de remerciement -->
+    <div class="thank-you-message" id="thankYouMessage" style="display: none;">
+        <h3>Merci pour votre achat !</h3>
+        <p>Votre commande a été reçue et est en cours de traitement.</p>
+        <a href="index.html">
+            <button class="btn">Retour à l'accueil</button>
+        </a>
+    </div>
+
+    <div class="order-summary">
+        <h3>Résumé de la commande</h3>
+        <div class="item">
+            <span>Total</span>
+            <span class="total" id="orderTotal"></span>
+        </div>
+    </div>
+
+    <script>
+        // Affichage du montant total sur la page de paiement
+        window.onload = function() {
+            let totalAmount = localStorage.getItem('totalAmount');
+            document.getElementById('orderTotal').textContent = totalAmount + ' MAD';
+        };
+
+        // Fonction pour soumettre le formulaire et afficher le message de remerciement
+        document.getElementById('paymentFormData').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche la soumission par défaut
+
+            // Cache le formulaire et affiche le message de remerciement
+            document.getElementById('paymentForm').style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dymatize Nutrition ISO100</title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="dyamtize.webp" alt="Dymatize Nutrition ISO100">
+        <div class="product-details">
+            <h1>Dymatize Nutrition ISO100 - 1,1 Kg</h1>
+            <p class="price">1 140,00 DH <span class="old-price">1 300,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Dymatize Nutrition ISO100 - 1,1 Kg', '1140,00', 'dyamtize.webp')">Ajouter au panier</button>
+            </div>
+            
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>ISO100 est une protéine isolée de haute qualité qui fournit 25g de protéines pures par portion. Elle est idéale pour les athlètes cherchant à améliorer la récupération et la croissance musculaire après un entraînement intense. Formulée pour une absorption rapide, elle ne contient presque pas de graisses ni de glucides, ce qui en fait le choix parfait pour les régimes stricts.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Protéine isolée de lactosérum</li>
+            <li>25g de protéines par portion</li>
+            <li>0g de sucres, 1g de graisses</li>
+            <li>Enrichie en BCAA pour soutenir la récupération</li>
+            <li>Idéale pour la croissance musculaire et la récupération</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+        // جلب السلة من localStorage، إذا كانت موجودة أو إنشاء سلة جديدة
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); // إضافة المنتج إلى السلة
+        localStorage.setItem('cart', JSON.stringify(cart)); // تخزين السلة في localStorage
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+</body>
+</html>

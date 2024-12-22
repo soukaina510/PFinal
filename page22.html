@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="stylepage.css">
+</head>
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="calcium.jpg" >
+        <div class="product-details">
+            <h1>Calcium Magnesium 90 Tabs-Scitec nutrition</h1>
+            <p class="price">199.00 DH <span class="old-price">250,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Calcium Magnesium 90 Tabs-Scitec nutrition', '199.00', 'calcium.jpg')">Ajouter au panier</button>
+                <button> <a href="index.html"> retour </a> </button>
+                <button><a href="cart.html">voir le panier</a></button>
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>500 mg de calcium 250 mg de magnésium par portion, ce produit est parfait pour les athlètes et les bodybuilders qui cherchent à optimiser leur prise de masse tout en soutenant leur énergie durant les entraînements intensifs.</p>
+        <h3>Caractéristiques :</h3> 
+        <ul> 
+            <li>Contient du calcium et du magnésium pour soutenir la santé des os et des dents</li>
+            <li>Le magnésium aide à réduire la fatigue et à maintenir la fonction musculaire normale</li>
+            <li>Facilite la transmission nerveuse et soutient les fonctions métaboliques</li> 
+            <li>Comprimés faciles à ingérer, pratiques pour une prise quotidienne</li> 
+            <li>Convient aux personnes ayant une activité physique intense ou à celles souhaitant compléter leur apport nutritionnel</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collections - Iron Gain</title>
+<style>
+                /* Styles généraux */
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: black;
+                    background-image: url('GYM.jpg'); /* Remplacez ce chemin par le bon */
+                    background-size: cover; /* Pour couvrir toute la page */
+                    background-position: center; /* Pour centrer l'image */
+                    background-attachment: fixed; /* Pour fixer l'image de fond lors du défilement */
+                    position:absolute;
+                    width: 100%;
+                    top: 0;
+                    right: 0;
+                }
+
+        .navbar {
+            display: flex;
+            justify-content: center; /* Centre le contenu horizontalement */
+            align-items: center;    /* Centre le contenu verticalement */
+            background-color: black; /* Couleur de fond */
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;          /* Couleur du texte */
+            text-decoration: none; /* Supprime le soulignement */
+            margin: 0 15px;        /* Espacement horizontal */
+            font-size: 18px;       /* Taille de la police */
+        }
+
+.navbar a:hover {
+    color: purple; /* Couleur au survol */
+}
+        .logo img {
+            width: 60px;
+            height: auto; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s; 
+        }
+        .logo img:hover {
+           transform: scale(1.05); 
+        }
+        .container {
+    display: flex; /* Pour aligner les éléments horizontalement */
+    flex-wrap: wrap; /* Pour permettre le retour à la ligne si nécessaire */
+    gap: 20px; /* Espacement entre les cartes */
+    justify-content: center; /* Centrer les éléments horizontalement */
+}
+
+.card {
+    text-align: center; /* Centrer le contenu de chaque carte */
+    background-color: #f9f9f9; /* Couleur de fond des cartes */
+    border: 1px solid #ddd; /* Bordure légère autour des cartes */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 40px;
+    width: 200px; /* Largeur fixe pour chaque carte */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+    transition: transform 0.2s ease; /* Animation au survol */
+}
+
+        .card:hover {
+            transform: scale(1.05); /* Zoom léger au survol */
+        }
+
+.row-img {
+    width: 100%; /* Image ajustée à la largeur de la carte */
+    max-width: 250px; /* Taille maximale de l'image */
+    height: auto; /* Préserve les proportions */
+    margin: 0 auto; /* Centrer l'image dans la carte */
+    display: block;
+}
+
+h2 {
+    font-size: 1.2rem; /* Taille de la police pour le titre */
+    margin: 10px 0;
+    color: white;
+}
+
+p {
+    font-size: 0.9rem; /* Taille de la police pour le texte */
+    color: white;
+}
+
+
+                /* Barre de navigation */
+                nav {
+                    background-color: #000;
+                    color: #fff;
+                    padding: 10px 20px;
+                    display:flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                nav .logo {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                nav .menu {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
+                nav .menu-item {
+                    position: relative;
+                }
+
+                nav .menu-item > a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 10px 15px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                nav .menu-item > a:hover {
+                    border-bottom: 2px solid #ffd700;
+                }
+
+                /* Sous-menu (dropdown) */
+                nav .submenu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: #fff;
+                    color: #000;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    display: none;
+                    min-width: 200px;
+                    z-index: 10;
+                }
+
+                nav .submenu a {
+                    display: block;
+                    padding: 10px 15px;
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+
+                nav .submenu a:hover {
+                    background-color: rgb(104, 146, 206);
+                }
+
+                nav .menu-item:hover .submenu {
+                    display: block;
+                }
+                nav .menu {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
+                nav .menu-item {
+                    position: relative;
+                }
+
+                nav .menu-item > a {
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 10px 15px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+
+                nav .menu-item > a:hover {
+                    border-bottom: 2px solid #ffd700;
+                }
+
+                .container {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 20px;
+                    padding: 20px;
+                }
+
+                .card {
+                    background-color: #1f1f1f;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    text-align: center;
+                }
+
+                .card-image {
+                    height: 200px;
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                .card h2 {
+                    font-size: 1.5em;
+                    margin: 10px 0;
+                }
+
+                .card p {
+                    margin: 10px 0;
+                    color: #888;
+                }
+
+                button {
+                    background-color: #ff5722;
+                    border: none;
+                    color: white;
+                    padding: 10px 20px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-size: 1em;
+                }
+
+                button:hover {
+                    background-color: #e64a19;
+                }
+                /* Section des produits */
+                .products-container {
+                    padding: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 20px;
+                    justify-content: center;
+                    color: #f0f0f0;
+                }
+
+                .product-card {
+                    background: black;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    width: 200px;
+                    text-align: center;
+                    padding: 15px;
+                }
+
+                .product-card img {
+                    max-width: 100%;
+                    border-radius: 5px;
+                }
+
+                .product-card h3 {
+                    font-size: 16px;
+                    margin: 10px 0;
+                }
+
+                .product-card p {
+                    font-size: 14px;
+                    color: #888;
+                }
+
+                .product-card button {
+                    background-color: rgb(0, 119, 255);
+                    color: #fff;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .product-card button:hover {
+                    background-color: rgb(0, 200, 255);
+                }
+                .contact {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        .contact .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact .contact-info div {
+            padding: 20px;
+        }
+
+        .contact .contact-info img {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .contact h4 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #f9f9f9;
+            text-transform: uppercase;
+        }
+
+        .contact p {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .contact .social-icon a {
+            margin-right: 10px;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .contact .social-icon a:hover {
+            color: #007bff;
+        }
+
+        .contact .end-text {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact .contact-info {
+                grid-template-columns: 1fr;
+            
+            </style>
+        </head>
+        <body>
+            <!-- Barre de navigation -->
+            <nav> 
+                <div class="logo">
+                    <a href="#" class="logo"><img src="photo4.jpg" alt="notfound"></a>
+                </div>
+                <div class="menu">
+                    <div class="menu-item">
+                        <a href="collection.html">Collections</a>
+                        <div class="submenu">
+                            <a href="collection1.html">Vos Proteins Et Masse</a>
+                            <a href="collection2.html">Vos Vitamines Et Mineraux</a>
+                            <a href="collection3.html">Creatine</a>
+                            <a href="collection4.html">Vos Accesoires</a>
+                            <a href="collection5.html">Vos Vetements</a>
+                        </div>
+                    </div>
+                    
+                    <div class="navbar">
+                    <div class="menu-item">
+                            <a href="index.html">Home</a>
+                            <a href="#contact">Contact</a>
+                    </div>
+                        <div class="nav-icon">
+                            <a href="#"><i class='bx bx-search-alt'></i></a>
+                            <a href="connecter.html"><i class='bx bx-user'></i></a>
+                            <a href="cart.html" class="cart-icon">
+                                <i class='bx bx-cart'></i>
+                                <span id="cart-count"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+    <!-- Conteneur pour afficher les produits -->
+    
+    <!-- Conteneur pour afficher les produits -->
+    <div class="products-container" id="products-container">
+        <p>Sélectionnez une catégorie pour voir les produits.</p>
+    </div>
+    <!-- Conteneur des collections -->
+    <main class="container">
+        <div class="card">
+            <a href="collection1.html">
+                <img src="pho1.png" alt="" class="row-img">
+            </a>
+            <h2>Vos Proteins Et Masse</h2>
+            <p>3 Produits</p> 
+            
+        </div>
+        <div class="card">
+            <a href="collection2.html">
+                <img src="prot .png" alt="" class="row-img">
+            </a>
+            <h2>Vos Vitamines Et Mineraux</h2>
+            <p>6 Produits</p>
+        </div>
+        <div class="card">
+            <a href="collection3.html">
+                <img src="prot4.png" alt="" class="row-img">
+            </a>
+            <h2>Creatine</h2>
+            <p>6 Produits</p>
+        </div>
+        <div class="card">
+            <a href="collection4.html">
+                <img src="prot2.png" alt="" class="row-img">
+            </a>
+            <h2>Vos Accesoires</h2>
+            <p>5 Produits</p>
+        </div>
+        <div class="card">
+            <a href="collection5.html">
+                <img src="prot3.png" alt="" class="row-img">
+            </a>
+            <h2>Vos Vetements</h2>
+            <p>3 Produits</p>
+        </div>
+    </main>
+    <script>
+        // Données des produits
+        const products = {
+            Vos_Proteins_Et_Masse: [
+                { name: "Mass-Tech elite 2.72Kg -Muscletech", price: "599,00 DH", image: "mass-tech.jpg" },
+                { name: "Serious Mass 5,44Kg - Optimum Nutrition", price: "849,00 DH", image: "seriousmass.webp" },
+                { name: "Dymatize Nutrition ISO 100, 5 lbs (2,26 kg)", price: "1,149,00 DH", image: "dyamtize.web" },
+            ],
+            Vos_Vitamines_Et_Mineraux: [
+                { name: "Zinc 100% VRN, 100 comprimés - Sotya", price: "149,00 DH", image: "Zinc.webp"},
+                { name: "SOTYA OMÉGA 3 HUILE DE POISSON 110 CAPSULES MOLLES", price: "149,00 DH", image: "sotya.webp" },
+                { name: "ONE-A-DAY COMPLETE MULTIVITAMIN FORMULA", price: "249,00 DH", image: "zinco.webp"},
+                { name: "Hx Nutrition Vita X 90 Tabs (3 Mois)", price: "249,00 DH", image: "hx.webp"},
+                { name: "Platinum multivitamins 90 Tabs - Muscletech", price: "249,00 DH", image: "platinum.webp"}
+            ],
+            Creatine: [
+                { name: "100% Creatine Monohydrate 500g Biotech USA", price: "439.00 DH", image: "creatine.webp" },
+                { name: "CREATINE Powder Hiro.Lab – 300g", price: "269,00 DH", image: "creatine1.webp" },
+                { name: "Creatine Monohydrate Applied Nutrition", price: "309,00 DH", image: "monohydrate.webp" },
+                { name: "Bio Tech Creatine 100% Monohydrate 300gr", price: "380,00 DH", image: "creatine2.webp" },
+                { name: "CREATINE CREAPURE (CreapureⓇ) 500 g 7NUTRITION", price: "499,00 DH", image: "creatine3.webp" },
+                { name: "Evolite Creatine Monohydrate 500g", price: "500,00 DH", image: "evolite.webp" },
+            ],
+            Vos_Accesoires: [
+                { name: "Blanche Shaker 600 mL", price: "59,00 DH", image: "shaker.webp" },
+                { name: "Pakka ceinture lombaire de musculation en cuir", price: "140,00 DH", image: "d2.webp" },
+                { name: "Gants de musculaition-Squeeze", price: "140,00 DH", image: "ceinture.webp" },
+                { name: "Shaker Wave+ Nano Biotech USA 300 ml +150 ml", price: "79.00 DH", image: "shakerw.webp" },
+                { name: "SHAKER WAVE BIOTECH 600ML", price: "89,00 DH", image: "shakerw2.webp" }
+            ],
+            Vos_Vetements:[
+                { name: "Capitcho blanc oversize taille ML", price: "190,00 DH", image: "capitcho.png" },
+                { name: "Capitcho Noir oversize taille M", price: "190,00 DH", image: "capitcho2.png" },
+                { name: "Pochette Moderne", price: "79,00 DH", image: "pochette.png" }
+                
+            ]
+        };
+
+                // Fonction pour afficher les produits d'une catégorie
+                function showProducts(category) {
+                    const container = document.getElementById("products-container");
+                    container.innerHTML = ""; // Vider le conteneur
+
+                    if (products[category] && products[category].length > 0) {
+                        products[category].forEach(product => {
+                            const productCard = document.createElement("div");
+                            productCard.classList.add("product-card");
+                            productCard.innerHTML = `
+                                <img src="${product.image}" alt="${product.name}">
+                                <h3>${product.name}</h3>
+                                <p>${product.price}</p>
+                                <button onclick="addToCart('${product.name}', '${product.price}')">Ajouter au panier</button>
+                            `;
+                            container.appendChild(productCard);
+                        });
+                    } else {
+                        container.innerHTML = "<p>Aucun produit disponible dans cette catégorie.</p>";
+                    }
+                }   
+                // Fonction pour ajouter au panier (à personnaliser)
+                function addToCart(name, price) {
+                    alert(`Produit ajouté au panier : ${name} (${price})`);
+                }
+            </script>
+            <section class="contact" id="contact">
+                <div class="contact-info">
+                    <div class="first-info">
+                        <img src="photo.jpg" alt="">
+
+                        <p>235 Marrakech MAssira,<br>Tx united kingdom 1345</p>
+                        <p>0604344462</p>
+                        <p>Proteingo@gmail.com</p>
+
+                        <div class="social-icon">
+        <a href="https://www.facebook.com/profile.php?id=61570784492456&mibextid=ZbWKwL"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram' ></i></a>
+        <a href="#"><i class='bx bxl-youtube' ></i></a>
+                        </div>
+                    </div>
+                    <div class="second-info">
+                        <h4>Support</h4>
+                        <p>Contact us</p>
+                        <p>About</p>
+                        <p>Collection</p>
+                        <p>Shopping</p>
+                        <p>Privarcy</p>
+                    </div>
+                    <div class="third-info">
+                        <h4>Collections</h4>
+                        <p>Proteines et Masses</p>
+                        <p>Vitamines et Mineraux</p>
+                        <p>Accesssoires</p>
+                        <p>Vetements</p>
+                        <p>Creatine</p>
+                    </div>
+                    <div class="fourth-info">
+                        <h4>Policies</h4>
+                        <p>Privarcy Policy</p>
+                        <p>Terms of service</p>
+                        <p>Refund Policy</p>
+                        <p>Contact Information</p>
+
+                    </div>
+                </div>
+                <div class="end-text">
+                    <p>Copyright 2024 Proteingo All Right Reserved.Designed by Group Devllopement</p>
+                </div>
+            </section>
+        </body>
+        </html>

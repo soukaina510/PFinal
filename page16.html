@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="stylepage.css">
+<body>
+
+<header>
+    <h1>Proteingo Boutique</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="ceinture.webp" alt="Pakka Ceinture Lombaire">
+        <div class="product-details">
+            <h1>Ceinture de musculation - Squeeze</h1>
+            <p class="price">149.00 DH <span class="old-price">250,00 DH</span></p>
+            <p class="availability">En stock</p>
+            <div class="purchase-options">
+                <button class="btn" onclick="addToCart('Ceinture de musculation - Squeeze', '149.00', 'ceinture.webp')">Ajouter au panier</button>
+                <button> <a href="index.html"> retour </a> </button>
+                <button><a href="cart.html">voir le panier</a></button>
+                
+            </div>
+            <div id="confirmationMessage"></div>
+        </div>
+    </div>
+
+    <div class="description">
+        <h2>Description du produit</h2>
+        <p>La ceinture lombaire Pakka en cuir est conçue pour fournir un soutien optimal à votre dos pendant vos séances de musculation. Fabriquée à partir de cuir de haute qualité, elle offre une durabilité exceptionnelle tout en assurant un confort maximal.</p>
+        <h3>Caractéristiques :</h3>
+        <ul>
+            <li>Matériau : cuir véritable pour une résistance accrue</li>
+            <li>Offre un excellent maintien lombaire</li>
+            <li>Conception ergonomique pour plus de confort</li>
+            <li>Idéale pour les levées lourdes (squat, deadlift, etc.)</li>
+            <li>Convient aussi bien aux débutants qu'aux experts</li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 Proteingo Boutique. Tous droits réservés.</p>
+</div>
+
+<script>
+    // دالة لإضافة المنتج إلى السلة
+    function addToCart(title, price, image) {
+        let product = {
+            title: title,
+            price: price,
+            image: image
+        };
+
+    
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push(product); 
+        localStorage.setItem('cart', JSON.stringify(cart)); 
+
+        alert(" Le produit a été ajouté au panier !");
+    }
+</script>
+
+</body>
+</html>
